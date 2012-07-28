@@ -1,0 +1,10 @@
+﻿<Window x:Class="VoiceApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Voice Recognition" Height="377" Width="590" Foreground="#FFD00303" FontSize="20" FontWeight="Bold">
+    <Grid>
+        <ListBox Height="175" HorizontalAlignment="Left" Margin="12,12,0,0" Name="inputfield" VerticalAlignment="Top" Width="544" FontFamily="Comic Sans MS" />
+        <Button Content="Start" Height="43" HorizontalAlignment="Right" Margin="0,224,77,0" Name="recbtn" VerticalAlignment="Top" Width="185" Click="recbtn_Click" FontFamily="Comic Sans MS" />
+        <Button Content="Exit" Height="43" HorizontalAlignment="Left" Margin="28,224,0,0" Name="button1" VerticalAlignment="Top" Width="185" Click="button1_Click" FontFamily="Comic Sans MS" />
+    </Grid>
+</Window>
