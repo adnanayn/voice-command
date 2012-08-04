@@ -117,7 +117,29 @@ namespace VoiceApp
                             DeviceSpeak.Speak("Closing Application");
                             SendKeys.SendWait("%{F4}");
                             break;
-                        
+                        case "SendEmail" :
+                            DeviceSpeak.Speak("Sending your email");
+                            SendKeys.SendWait("%S");
+                            break;
+                        case "Outlook" :
+                            DeviceSpeak.Speak("Opening Outlook");
+                            currentProcess = Process.Start("outlook.exe");
+                            break;
+                        case "OutlookInbox" :
+                            DeviceSpeak.Speak("Switching Inbox");
+                            SendKeys.SendWait("^+I");
+                            break;
+                        case "OutlookOutbox":
+                            DeviceSpeak.Speak("Switching Outbox");
+                            SendKeys.SendWait("^+O");
+                            break;
+                        case "CheckNewEmail" :
+                            DeviceSpeak.Speak("Checking New Email");
+                            SendKeys.SendWait("{F9}");
+                            break;
+                        case "Compose" :
+                            SendKeys.SendWait("^N");
+                            break;
                         default:
                             //DeviceSpeak.Speak("Searching"+word.Text);
                             //currentProcess = Process.Start("http://google.com/search?q="+word.Text);
@@ -139,7 +161,7 @@ namespace VoiceApp
         private void gmBuilder()
         {
             Choices cmd = new Choices();
-            cmd.Add(new string[] {"Close", "FireFox", "NewTab","Notepad","MyComputer","ControlPanel","NetworkPlaces","StartMenu","RecycleBin","MyDocuments","Administrative Tools","TaskManager" });
+            cmd.Add(new string[] { "Close", "FireFox", "NewTab", "Notepad", "MyComputer", "ControlPanel", "NetworkPlaces", "StartMenu", "RecycleBin", "MyDocuments", "Administrative Tools", "TaskManager", "Outlook", "OutlookInbox", "OutlookOutbox", "SendEmail", "CheckNewEmail","Compose"});
 
             /*Create a GrammarBuilder object and append the Choices object.*/
             GrammarBuilder gb = new GrammarBuilder();
@@ -155,11 +177,6 @@ namespace VoiceApp
             Speech.LoadGrammar(new DictationGrammar());
 
         }
-        private void MoveMouse(int x, int y)
-        {
-            /*this.Cursor = new System.Windows.Input.Cursor(Cursor.Current.Handle);
-            Cursor.Position = new Point(x, y);
-            Cursor.Clip = new Rectangle(this.Location, this.Size);*/
-        }
+        
     }
 }
